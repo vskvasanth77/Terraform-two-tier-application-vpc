@@ -55,3 +55,8 @@ output "subnet_3" {
 output "subnet_4" {
   value = aws_subnet.private-2.id
 }
+
+output "subnet_az" {
+  value = aws_subnet.public-1.availability_zone_id
+  
+}

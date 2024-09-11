@@ -27,6 +27,18 @@ variable "protocol_name" {
 
 }
 
+variable "ebs_storage_size" {
+  type        = number
+  description = "size of ebs"
+
+}
+
+variable "ebs_storage_type" {
+  type        = string
+  description = "type of ebs volume"
+
+}
+
 # variable "ami_id" {
 #   type        = string
 #   description = "ami id for ubuntu"

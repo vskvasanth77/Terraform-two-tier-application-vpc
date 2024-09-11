@@ -9,3 +9,9 @@ variable "ebs_storage_type_module" {
     description = "module"
   
 }
+
+variable "pub_1_sub_az" {
+    description = "value"
+    type = string
+  
+}
