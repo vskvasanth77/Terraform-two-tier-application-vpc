@@ -9,6 +9,24 @@ variable "cidr_all_block" {
 
 }
 
+variable "port_number_public" {
+  type        = list(number)
+  description = "port for both public and private subnet"
+
+}
+
+variable "port_number_private" {
+  type        = list(number)
+  description = "port for both public and private subnet"
+
+}
+
+variable "protocol_name" {
+  type        = string
+  description = "value for protocol name"
+
+}
+
 # variable "ami_id" {
 #   type        = string
 #   description = "ami id for ubuntu"

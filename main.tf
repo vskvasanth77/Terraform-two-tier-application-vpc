@@ -22,10 +22,33 @@ module "route_module" {
   subnet_2 = module.subnet_module.subnet_2
   subnet_3 = module.subnet_module.subnet_3
   subnet_4 = module.subnet_module.subnet_4
+  igw_id = module.internet_gateway_module.igw_id
 
+}
 
+module "internet_gateway_module" {
+  source = "./modules/internet_gateway"
+  vpd_id = module.vpc_test.aws_vpc_id
   
 }
+
+module "security_group_module" {
+  source = "./modules/security_group"
+  vpd_id = module.vpc_test.aws_vpc_id
+  port_number_public_module = var.port_number_private
+  port_number_private_module = var.port_number_private
+  protocol_name_module = var.protocol_name
+  cidr_all_block_module = var.cidr_all_block
+}
+
+module "ebs_module" {
+  source = "./modules/ebs"
+  ebs_storage_size_module = var.ebs_storage_size
+  ebs_storage_type_module = var.ebs_storage_type
+  pub_1_sub_az = module.subnet_module.subnet_1.availability_zone
+}
+
+
 # resource "aws_vpc" "main" {
 #   cidr_block           = var.cidr_block_vpc
 #   enable_dns_support   = true

@@ -30,3 +30,9 @@ variable "subnet_4" {
   type = string
     description = "subnet_id_1"
 }
+
+variable "igw_id" {
+    type = string
+    description = "igw id"
+  
+}

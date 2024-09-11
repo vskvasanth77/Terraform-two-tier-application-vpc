@@ -5,7 +5,7 @@ resource "aws_route_table" "public_route" {
 
   route {
     cidr_block = var.cidr_all_block_child
-    # gateway_id = aws_internet_gateway.vpc-igw.id
+    gateway_id = var.igw_id
   }
 
   tags = {

@@ -44,14 +44,14 @@ resource "aws_subnet" "private-2" {
 }
 
 output "subnet_1" {
-  value = aws_subnet.private-1.id
+  value = aws_subnet.public-1.id
 }
 output "subnet_2" {
-  value = aws_subnet.private-1.id
+  value = aws_subnet.public-2.id
 }
 output "subnet_3" {
   value = aws_subnet.private-1.id
 }
 output "subnet_4" {
-  value = aws_subnet.private-1.id
+  value = aws_subnet.private-2.id
 }
