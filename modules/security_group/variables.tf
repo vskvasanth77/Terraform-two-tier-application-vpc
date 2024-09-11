@@ -15,6 +15,11 @@ variable "port_number_private_module" {
     type = list(number)
  
 }
+variable "port_number_alb_module" {
+    description = "port number for private module"  
+    type = list(number)
+ 
+}
 
 variable "protocol_name_module" {
     description = "portocol name"

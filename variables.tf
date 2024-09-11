@@ -21,6 +21,12 @@ variable "port_number_private" {
 
 }
 
+variable "port_number_alb" {
+  type = list(number)
+  description = "portnumber for the alb"
+  
+}
+
 variable "protocol_name" {
   type        = string
   description = "value for protocol name"
@@ -56,6 +62,14 @@ variable "key" {
   description = "key_pair name"
 
 }
+
+variable "lb_type" {
+  type        = string
+  description = "type of load balancer"
+
+}
+
+
 
 # variable "port_number_public" {
 #   type        = list(number)

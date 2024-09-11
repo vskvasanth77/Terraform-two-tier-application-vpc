@@ -39,6 +39,7 @@ module "security_group_module" {
   port_number_private_module = var.port_number_private
   protocol_name_module = var.protocol_name
   cidr_all_block_module = var.cidr_all_block
+  port_number_alb_module = var.port_number_alb
 }
 
 module "ebs_module" {
@@ -60,6 +61,16 @@ module "ec2_module" {
   public_sg_module = module.security_group_module.pub_sg_id
   private_sg_module = module.security_group_module.pri_sg_id
   
+}
+
+module "alb_module" {
+  source = "./modules/alb"
+  lb_type_module = var.lb_type
+  vpd_id = module.vpc_test.aws_vpc_id
+  alb_sg_gp = module.security_group_module.alb_sg_id
+  pub_subnet_1 = module.subnet_module.subnet_1
+  pub_subnet_2 = module.subnet_module.subnet_2
+  public_ec2_id = module.ec2_module.public_ec2_1
 }
 
 

@@ -6,9 +6,7 @@ resource "aws_instance" "public_ec2_A" {
   key_name      = var.key_module
 
   #public subnet
-#   subnet_id       = aws_subnet.public-1.id
     subnet_id = var.subnet_id_1_module
-    #security_groups = [aws_security_group.public-sg.id]
     security_groups = [var.public_sg_module]
 
   #lifecycle
@@ -20,13 +18,13 @@ resource "aws_instance" "public_ec2_A" {
     Name = "pubic-ec2-A"
   }
 
-#   user_data = <<-EOF
-#     #!/bin/bash
-#     sudo apt update -y
-#     sudo apt install apache2 -y
-#     sudo systemctl enable apache2
-#     sudo systemctl start apache2
-#   EOF
+  user_data = <<-EOF
+    #!/bin/bash
+    sudo apt update -y
+    sudo apt install apache2 -y
+    sudo systemctl enable apache2
+    sudo systemctl start apache2
+  EOF
 
   # connection {
   #   type        = "ssh"
@@ -57,6 +55,14 @@ resource "aws_instance" "public_ec2_B" {
   tags = {
     Name = "pubic-ec2-B"
   }
+
+    user_data = <<-EOF
+    #!/bin/bash
+    sudo apt update -y
+    sudo apt install apache2 -y
+    sudo systemctl enable apache2
+    sudo systemctl start apache2
+  EOF
 }
 
 
@@ -97,6 +103,11 @@ resource "aws_instance" "private_ec2_B" {
     Name = "private-ec2-A"
   }
 
+}
+
+output "public_ec2_1" {
+    value = aws_instance.public_ec2_A.id
+  
 }
 
 
