@@ -45,7 +45,7 @@ module "ebs_module" {
   source = "./modules/ebs"
   ebs_storage_size_module = var.ebs_storage_size
   ebs_storage_type_module = var.ebs_storage_type
-  pub_1_sub_az = module.subnet_module.subnet_1.availability_zone
+  pub_1_sub_az = module.subnet_module.subnet_az
 }
 
 
