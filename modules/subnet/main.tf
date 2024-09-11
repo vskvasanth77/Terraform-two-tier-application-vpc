@@ -57,6 +57,6 @@ output "subnet_4" {
 }
 
 output "subnet_az" {
-  value = aws_subnet.public-1.availability_zone_id
+  value = aws_subnet.public-1.availability_zone
   
 }

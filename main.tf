@@ -48,6 +48,20 @@ module "ebs_module" {
   pub_1_sub_az = module.subnet_module.subnet_az
 }
 
+module "ec2_module" {
+  source = "./modules/ec2_instance"
+  ami_id_module = var.ami_id
+  ec2_type_module = var.ec2_type
+  key_module = var.key
+  subnet_id_1_module = module.subnet_module.subnet_1
+  subnet_id_2_module = module.subnet_module.subnet_2
+  subnet_id_3_module = module.subnet_module.subnet_3
+  subnet_id_4_module = module.subnet_module.subnet_4
+  public_sg_module = module.security_group_module.pub_sg_id
+  private_sg_module = module.security_group_module.pri_sg_id
+  
+}
+
 
 # resource "aws_vpc" "main" {
 #   cidr_block           = var.cidr_block_vpc

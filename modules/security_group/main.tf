@@ -58,3 +58,12 @@ resource "aws_security_group" "private-sg" {
   }
    
 }
+
+output "pub_sg_id" {
+    value =aws_security_group.public-sg.id
+  
+}
+output "pri_sg_id" {
+    value =aws_security_group.private-sg.id
+  
+}

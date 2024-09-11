@@ -39,23 +39,23 @@ variable "ebs_storage_type" {
 
 }
 
-# variable "ami_id" {
-#   type        = string
-#   description = "ami id for ubuntu"
+variable "ami_id" {
+  type        = string
+  description = "ami id for ubuntu"
 
-# }
+}
 
-# variable "ec2_type" {
-#   type        = string
-#   description = "type of the instance"
+variable "ec2_type" {
+  type        = string
+  description = "type of the instance"
 
-# }
+}
 
-# variable "key" {
-#   type        = string
-#   description = "key_pair name"
+variable "key" {
+  type        = string
+  description = "key_pair name"
 
-# }
+}
 
 # variable "port_number_public" {
 #   type        = list(number)
