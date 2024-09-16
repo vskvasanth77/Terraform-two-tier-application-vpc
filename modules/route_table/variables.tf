@@ -4,6 +4,7 @@ variable "cidr_all_block_child" {
   
 }
 
+
 variable "vpd_id" {
     type = string
     description = "vpc_id"
@@ -34,5 +35,11 @@ variable "subnet_4" {
 variable "igw_id" {
     type = string
     description = "igw id"
+  
+}
+
+variable "nat_igw_id" {
+  type = string
+  description = "import the nat in from the module"
   
 }

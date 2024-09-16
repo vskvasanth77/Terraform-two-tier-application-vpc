@@ -23,6 +23,7 @@ module "route_module" {
   subnet_3 = module.subnet_module.subnet_3
   subnet_4 = module.subnet_module.subnet_4
   igw_id = module.internet_gateway_module.igw_id
+  nat_igw_id = module.nat_module.nat_igw_id
 
 }
 
@@ -71,6 +72,12 @@ module "alb_module" {
   pub_subnet_1 = module.subnet_module.subnet_1
   pub_subnet_2 = module.subnet_module.subnet_2
   public_ec2_id = module.ec2_module.public_ec2_1
+}
+
+module "nat_module" {
+  source = "./modules/nat_gateway"
+  public_subnet_1_id = module.subnet_module.subnet_1
+  
 }
 
 
