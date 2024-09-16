@@ -33,6 +33,12 @@ module "internet_gateway_module" {
   
 }
 
+module "nat_module" {
+  source = "./modules/nat_gateway"
+  public_subnet_1_id = module.subnet_module.subnet_1
+  
+}
+
 module "security_group_module" {
   source = "./modules/security_group"
   vpd_id = module.vpc_test.aws_vpc_id
@@ -74,10 +80,6 @@ module "alb_module" {
   public_ec2_id = module.ec2_module.public_ec2_1
 }
 
-module "nat_module" {
-  source = "./modules/nat_gateway"
-  public_subnet_1_id = module.subnet_module.subnet_1
-  
-}
+
 
 
