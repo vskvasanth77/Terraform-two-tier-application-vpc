@@ -17,24 +17,8 @@ resource "aws_instance" "public_ec2_A" {
   tags = {
     Name = "pubic-ec2-A"
   }
+ user_data = file("./inline.sh") 
 
-  user_data = <<-EOF
-    #!/bin/bash
-    sudo apt update -y
-    sudo apt install apache2 -y
-    sudo systemctl enable apache2
-    sudo systemctl start apache2
-  EOF
-
-  # connection {
-  #   type        = "ssh"
-  #   user        = "ubuntu"
-  #   private_key = file("./source_key.pem")
-  #   host        = self.public_ip
-  # }
-  # provisioner "remote-exec" {
-  #   inline = ["sudo apt update -y", "sudo apt install apache2 -y", "sudo systemctl enable apache2", "sudo systemctl start apache2", "sudo systemctl status apache2"]
-  # }
 
 }
 
@@ -55,14 +39,8 @@ resource "aws_instance" "public_ec2_B" {
   tags = {
     Name = "pubic-ec2-B"
   }
-
-    user_data = <<-EOF
-    #!/bin/bash
-    sudo apt update -y
-    sudo apt install apache2 -y
-    sudo systemctl enable apache2
-    sudo systemctl start apache2
-  EOF
+user_data = file("./inline.sh") 
+    
 }
 
 
